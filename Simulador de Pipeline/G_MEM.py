@@ -1,0 +1,29 @@
+import G_UTL
+
+# Contador de Programa
+PC = 0
+
+# Instrução da memoria
+INST = []
+
+# Registradores
+REGS = [0 for i in range(32)]
+
+# Memória de dados
+DATA = [0 for i in range(G_UTL.DATA_SIZE)]
+
+# Registradores do Pipeline
+IF_ID = {'NPC': 0, 'IR': 0}
+ID_EX = {'NPC': 0, 'A': 0, 'B': 0, 'RT': 0, 'RD': 0, 'IMM': 0, 'RS': 0}
+EX_MEM = {'BR_TGT': 0, 'ZERO': 0, 'ALU_OUT': 0, 'B': 0, 'RD': 0}
+MEM_WB = {'LMD': 0, 'ALU_OUT': 0, 'RD': 0}
+
+# Sinais de controle
+ID_EX_CTRL = {'REG_DST': 0, 'ALU_SRC': 0, 'MEM_TO_REG': 0, 'REG_WRITE': 0,
+              'MEM_READ': 0, 'MEM_WRITE': 0, 'BRANCH': 0, 'ALU_OP': 0}
+EX_MEM_CTRL = {'MEM_READ': 0, 'MEM_WRITE': 0, 'BRANCH': 0, 'MEM_TO_REG': 0, 'REG_WRITE': 0}
+MEM_WB_CTRL = {'MEM_TO_REG': 0, 'REG_WRITE': 0}
+
+
+# Sinais da unidade de encaminhamento
+FWD = {'PC_WRITE': 1, 'IF_ID_WRITE': 1, 'FWD_A': 0, 'FWD_B': 0, 'STALL': 0}
